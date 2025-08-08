@@ -9,12 +9,13 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         clean: true,
     },
+    devtool: "eval-source-map",
+    devServer: {
+        watchFiles: ["./src/weather-app.html"],
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: "src/weather-app.html",
-        }),
-        new webpack.DefinePlugin({
-            PRODUCTION: JSON.stringify(true),      
         }),
     ],
     module: {
